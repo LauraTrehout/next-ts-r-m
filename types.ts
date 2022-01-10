@@ -1,4 +1,3 @@
-import { InformationEvent } from "http";
 
 export interface Character {
   id: number;
@@ -11,13 +10,13 @@ export interface Character {
 }
 
 export interface GetCharacterResults {
-    info: Info;
-    results: Character[]
+  info: Info;
+  results: Character[];
 }
 
 export interface Info {
-    count: number;
-    pages: number;
-    next: string;
-    prev: null;
+  count: number;
+  pages: number;
+  next: string;
+  prev: null;
 }

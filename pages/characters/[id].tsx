@@ -2,31 +2,14 @@ import { GetCharacterResults, Character } from "../../types";
 import Image from "next/image";
 import Link from "next/link";
 import ImageLoader from "./../../imageLoader";
+import { GetServerSideProps } from "next";
 
-export const getStaticPaths = async () => {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const characters: GetCharacterResults = await response.json();
-  return {
-    paths: characters.results.map((char) => {
-      return {
-        params: {
-          id: String(char.id),
-        },
-      };
-    }),
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await fetch(
-    `https://rickandmortyapi.com/api/character/${params.id}`
+    `https://rickandmortyapi.com/api/character/${context.query.id}`
   );
   const character: Character = await response.json();
+
   return {
     props: {
       character,

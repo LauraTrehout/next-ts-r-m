@@ -8,7 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "next": "12.0.7",
+    "pg": "^8.7.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

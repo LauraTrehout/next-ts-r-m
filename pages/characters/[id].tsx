@@ -25,10 +25,10 @@ const CharacterPage = ({ character }: { character: Character }) => {
       <Image
         src={character.image}
         alt={character.name}
-        unoptimized
         width={200}
         height={200}
         loader={ImageLoader}
+        unoptimized
       />
     </div>
   );
